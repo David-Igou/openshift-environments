@@ -1,13 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ingress-cluster
+  name: registry-cluster
   namespace: openshift-gitops
 spec:
   destination:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: us-east-1/dev-1/ingress
+    path: us-east-1/dev-1/registry
     repoURL: https://github.com/David-Igou/openshift-environments.git
+    targetRevision: HEAD
   syncPolicy: {}

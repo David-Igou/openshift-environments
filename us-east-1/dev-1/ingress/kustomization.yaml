@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - https://github.com/David-Igou/openshift-cluster-app-templates.git/ingress/
+  - "https://github.com/David-Igou/openshift-cluster-app-templates.git/ingress/?ref=dev"
 namespace: openshift-ingress-operator
 commonAnnotations:
   env: dev
