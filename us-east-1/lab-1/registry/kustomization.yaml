@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - https://github.com/David-Igou/openshift-cluster-app-templates.git/registry/?ref=lab
+commonAnnotations:
+  env: lab
+patches:
+  - patch: |-
+      apiVersion: imageregistry.operator.openshift.io/v1
+      kind: Config
+      metadata:
+        name: cluster
+      spec:
+        storage:
+          s3:
+            bucket: my-lab-1-us-east-bucket
+            region: us-east-1
+    target:
+      name: cluster
